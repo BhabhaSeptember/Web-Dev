@@ -1,6 +1,6 @@
 import mongodb from "mongodb";
-const { ObjectId } = require('mongodb');
-// const ObjectId = new mongodb.ObjectId;
+// const { ObjectId } = require('mongodb');
+const ObjectId = mongodb.ObjectId;
 
 let reviews;
 
@@ -29,7 +29,7 @@ reviewDAO: ${e}`);
         user_id: user._id,
         date: date,
         review: review,
-        movie_id: ObjectId(movieId),
+        movie_id: new ObjectId(movieId),
       };
       return await reviews.insertOne(reviewDoc);
     } catch (e) {
@@ -44,7 +44,7 @@ reviewDAO: ${e}`);
   static async updateReview(reviewId, userId, review, date) {
     try {
       const updateResponse = await reviews.updateOne(
-        { user_id: userId, _id: ObjectId(reviewId) },
+        { user_id: userId, _id: new ObjectId(reviewId) },
         { $set: { review: review, date: date } }
       );
       return updateResponse;
@@ -60,7 +60,7 @@ reviewDAO: ${e}`);
   static async deleteReview(reviewId, userId) {
     try {
       const deleteResponse = await reviews.deleteOne({
-        _id: ObjectId(reviewId),
+        _id: new ObjectId(reviewId),
         user_id: userId,
       });
       return deleteResponse;

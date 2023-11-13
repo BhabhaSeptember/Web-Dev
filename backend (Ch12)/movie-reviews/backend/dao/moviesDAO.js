@@ -1,5 +1,5 @@
 import mongodb from "mongodb";
-const ObjectId = mongodb.ObjectID;
+const ObjectId = mongodb.ObjectId;
 
 let movies;
 
@@ -50,7 +50,7 @@ export default class MoviesDAO {
   static async getRatings() {
     let ratings = [];
     try {
-      ratings = await movies.distinct("rated");
+      ratings = await m.distinoviesct("rated");
       return ratings;
     } catch (e) {
       console.error(`unable to get ratings, $(e)`);
