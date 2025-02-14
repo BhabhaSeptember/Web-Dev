@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +29,12 @@ export default function RootLayout({ children }) {
 
 <div className="navbar bg-base-100">
   <div className="flex-1">
-    <a className="btn btn-ghost text-xl">daisyUI</a>
+    <Link href="/" className="btn btn-ghost normal-case text-xl">Bhabha's Book List</Link>
   </div>
   <div className="flex-none gap-2">
+  <ul className="menu menu-horizontal px-1"> <li><Link
+href="/about">About</Link></li> <li><Link href="/about/contact">Contact</Link></li>
+<li><Link href="/githubusers">GitHub Users</Link></li> </ul>
     <div className="form-control">
       <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
     </div>
