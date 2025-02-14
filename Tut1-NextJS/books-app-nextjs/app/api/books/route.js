@@ -1,5 +1,6 @@
 import books from "./data.json";
 import { NextResponse } from "next/server";
+import { v4 as uuidv4 } from 'uuid';
 
 export async function GET(req) {
   return NextResponse.json(books);
@@ -8,7 +9,7 @@ export async function GET(req) {
 export async function POST(req) {
   const { title, link, img } = await req.json(); //retrieve body data
   const newBook = {
-    id: books.length + 1,
+    id: uuidv4(),
     title,
     link,
     img,
