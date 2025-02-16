@@ -1,0 +1,8 @@
+//TypeScript Configuration
+
+{
+  "compilerOptions": {
+    "rootDir": "./src", //directory where all files are stored
+    "outDir": "./dist" //for all JS files which we will transpile
+  }
+}
