@@ -3,7 +3,7 @@
 import { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import LoadingPage from "../loading";
-import { SearchContext } from "../layout"; // Import context
+import { SearchContext } from "../context/SearchContext"; // Import context
 import AddBook from "./AddBook";
 
 const Books = () => {
@@ -39,7 +39,7 @@ const Books = () => {
     const res = await fetch(`api/books/${id}`, {
       method: "DELETE",
     });
-    console.log("Deleting...")
+    console.log("Deleting...");
     fetchBooks();
   };
 
@@ -55,7 +55,11 @@ const Books = () => {
             <h2 className="card-title">{book.title}</h2>
             <p>{book.id}</p>
             <div className="card-actions justify-end">
-              <Link href={book.link} className="btn btn-primary">
+              <Link
+                href={book.link}
+                className="btn btn-primary"
+                target="_blank"
+              >
                 See in Amazon
               </Link>
               <button
@@ -76,5 +80,3 @@ const Books = () => {
 };
 
 export default Books;
-
-

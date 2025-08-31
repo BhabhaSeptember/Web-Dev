@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, createContext } from "react";
+import { useState } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import { SearchContext } from "./context/SearchContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,9 +15,6 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
-// Create a Context for search functionality
-export const SearchContext = createContext();
 
 export default function RootLayout({ children }) {
   const [searchTerm, setSearchTerm] = useState("");
