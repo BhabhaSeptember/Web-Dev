@@ -12,10 +12,10 @@
 //3)
 // let hello: string = "typescript"; //specifying the type
 //========================= FUNCTIONS =========================
-// const getFullName = (name: string, surname: string): string => {
-//     return name + " " + surname;
-// };
-// console.log(getFullName("Bhabha", "September"));
+var getFullName = function (name, surname) {
+    return name + " " + surname;
+};
+console.log(getFullName("Bhabha", "September"));
 //========================= INTERFACES =========================
 //1) Creating Objects
 // const user: {name: string, age: number} = {
